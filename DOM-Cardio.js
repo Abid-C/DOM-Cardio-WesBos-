@@ -5,22 +5,29 @@ document.body.appendChild(div_with_wrapper);
 
 //List heading
 const unordered_list = document.createElement('ul');
-unordered_list.textContent = 'DOM-Cardio';
-unordered_list.classList.add('list_header');
+const span_for_list_header = document.createElement('span');
+span_for_list_header.textContent = 'DOM-Cardio';
+span_for_list_header.classList.add('list_header');
 
 div_with_wrapper.appendChild(unordered_list);
+unordered_list.insertAdjacentElement('afterbegin', span_for_list_header);
 
-//const stylise_the_header = `
-//     <style>
-//         .list_header {
-//             color: blue;
-//         }
-//     </style>
-// `;
+const stylise_the_header = `
+    <style>
+        .list_header {
+            color: blue;
+            text-shadow: 1px 1px grey;
+        }
+    </style>
+`;
+
+const myFragment = document.createRange().createContextualFragment(stylise_the_header);
+
+document.body.appendChild(myFragment);
 
 // const body = document.querySelector('body');
 
-// body.insertAdjacentElement('afterend', stylise_the_header);
+// body.appendChild(stylise_the_header);
 
 //Creating list items
 const li_one = document.createElement('li');
