@@ -1,3 +1,5 @@
+const body = document.querySelector('body');
+
 //DOM title with the class wrapper
 const div_with_wrapper = document.createElement('div');
 div_with_wrapper.classList.add('wrapper');
@@ -40,3 +42,12 @@ li_three.textContent = 'Three';
 unordered_list.appendChild(li_two);
 li_two.insertAdjacentElement('beforebegin', li_one);
 li_two.insertAdjacentElement('afterend', li_three);
+
+//creating image
+const img = document.createElement('img');
+const img_size = 250;
+img.src = `https://picsum.photos/${img_size}`;
+img.classList.add('nice');
+img.alt = 'nice picture';
+
+body.appendChild(img); 
