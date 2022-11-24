@@ -50,4 +50,17 @@ img.src = `https://picsum.photos/${img_size}`;
 img.classList.add('nice');
 img.alt = 'nice picture';
 
-body.appendChild(img); 
+body.appendChild(img);
+
+//creating an html string with a div containing two paragraphs
+const div_w_para = `
+        <div>
+            <p>
+            Both phones have industry leading cameras but if you're looking for an exceptional Telephoto lens opt for the Galaxy S21 with its 64-megapixels. However if selfies are more your thing the 32-megapixel camera on the Galaxy S21 FE is what you need.</p>
+
+            <p class="warning">
+            Both phones have industry leading cameras but if you're looking for an exceptional Telephoto lens opt for the Galaxy S21 with its 64-megapixels. However if selfies are more your thing the 32-megapixel camera on the Galaxy S21 FE is what you need.Both phones have industry leading cameras but if you're looking for an exceptional Telephoto lens opt for the Galaxy S21 with its 64-megapixels. However if selfies are more your thing the 32-megapixel camera on the Galaxy S21 FE is what you need.</p>
+        </div>
+`;
+
+unordered_list.insertAdjacentHTML('beforebegin', div_w_para);
