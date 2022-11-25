@@ -71,3 +71,50 @@ unordered_list.insertAdjacentHTML('beforebegin', div_w_para);
 div_with_wrapper.children[0].children[1].classList.add('warning')
 
 div_with_wrapper.children[0].children[0].remove();
+
+
+//creating a function called generatePlayerCard
+
+function generatePlayerCard(name, age, height) {
+
+    const Dog_Sentence = `
+        <div class="playerCard">
+            <h2>${name} — ${age}</h2>
+            <p>Their height is ${height} and ${age} years old. In Dog years this person would be ${age * 10}. That would be a tall dog!</p>
+            <button class="delete" type="button">&times; Delete</button>
+        </div>
+    `;
+
+    return Dog_Sentence
+}
+
+// make a new div with a class of cards
+const cards_div = document.createElement('div');
+
+cards_div.classList.add('cards');
+
+// make 4 player cards using generatePlayerCard
+let cardGenerating = generatePlayerCard('A', 24, 125);
+cardGenerating += generatePlayerCard('B', 26, 125);
+cardGenerating += generatePlayerCard('I', 28, 125);
+cardGenerating += generatePlayerCard('D', 30, 125);
+
+// append those cards to the div
+cards_div.innerHTML = cardGenerating;
+
+// put the div into the DOM just before the wrapper element
+div_with_wrapper.insertAdjacentElement('beforebegin', cards_div);
+
+// Bonus, put a delete Button on each card so when you click it, the whole card is removed
+
+// select all the buttons!
+const delete_button = document.querySelectorAll('.delete');
+
+//make the delete function
+function deleteCard(event) {
+    const clickedButton = event.currentTarget;
+    clickedButton.parentElement.remove();
+}
+
+// loop over them and attach a listener
+delete_button.forEach(button => button.addEventListener('click', deleteCard))
